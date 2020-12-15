@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 1
   _speed: 2
-  _points: 100
+  _points: 300
   _explosionScale: 1
   _player: {fileID: 0}
   _playerScore: {fileID: 0}

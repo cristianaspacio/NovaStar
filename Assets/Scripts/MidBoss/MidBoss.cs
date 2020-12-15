@@ -127,8 +127,9 @@ public class MidBoss : MonoBehaviour
         if (_health <= 0 && !_isDead)
         {
             _isDead = true;
-            //Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlayEffect(_explosionSound, _explosionVol);
+            /*
             if (_explosionPrefab != null)
             {
                 Debug.Log("Explosion");
@@ -141,10 +142,12 @@ public class MidBoss : MonoBehaviour
                 explosion.transform.localScale = new Vector3(_explosionScale, _explosionScale, _explosionScale);
 
             }
+            */
 
             AudioManager.Instance.PlayMusic(_endMusicSource, _musicVolume);
 
             PowerUp();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScore>().AddScore(1000f);
             Destroy(gameObject, 0.5f);
         }
         else if (_health <= 25)
