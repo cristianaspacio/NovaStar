@@ -157,7 +157,7 @@ MonoBehaviour:
     type: 3}
   _weaponPos: {fileID: 6976760748338407639}
   _fireCD: 0
-  _fireRate: 2
+  _fireRate: 1
   _beamHit: 0
   _onScreen: 0
   _dying: 0

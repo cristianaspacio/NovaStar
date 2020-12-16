@@ -171,12 +171,14 @@ MonoBehaviour:
       type: 3}
   - name: Wave 17
     enemy:
-    - {fileID: 9213923430128120643, guid: 4e796615ac2647a4b9554dda7354a44b, type: 3}
+    - {fileID: 1800837295739870105, guid: a2f2660a1946ad647b701ed9ab9581a2, type: 3}
+    - {fileID: 5925815399817429637, guid: 69ad86e43afd6e14caf1537e71648a57, type: 3}
     count: 1
     rate: 5
-    _waveAnim: {fileID: 0}
+    _waveAnim: {fileID: 8126645068013010188, guid: 4e796615ac2647a4b9554dda7354a44b,
+      type: 3}
   spawnPoints:
   - {fileID: 0}
   timeBetweenWaves: 5
-  nextWave: 6
+  nextWave: 16
   _checkpointReached: 0

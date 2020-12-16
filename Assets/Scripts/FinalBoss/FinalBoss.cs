@@ -64,6 +64,24 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] protected float _beamDamage = 1.0f;
     protected float _hitTime;
 
+    [SerializeField] private AudioClip _fightMusicSource;
+    [SerializeField] private AudioClip _endMusicSource;
+    [SerializeField] private float _musicVolume = .9f;
+    [SerializeField] private bool _startBGMusic = true;
+
+    [SerializeField] private AudioClip _explosionSound;
+    [SerializeField] private float _explosionVol;
+    [SerializeField] protected float _explosionScale = 1.0f;
+
+    [SerializeField] private AudioClip _hitSound;
+    [SerializeField] private AudioClip _normalLaserClip;
+    private bool _normalLaserClipStart;
+
+    [SerializeField] private AudioClip _bombDropClip;
+    [SerializeField] private AudioClip _orbShotClip;
+    [SerializeField] private AudioClip _miniLaserClip;
+
+    [SerializeField] private GameObject _bgColorChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +98,11 @@ public class FinalBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_startBGMusic == true && _anim.GetCurrentAnimatorStateInfo(0).IsTag("2"))
+        {
+            AudioManager.Instance.PlayMusic(_fightMusicSource, _musicVolume);
+            _startBGMusic = false;
+        }
         //activates the second phase of the fight
         if (_curHp <= _maxHp * .5 && _stopHpCheck == false)
         {
@@ -168,6 +191,7 @@ public class FinalBoss : MonoBehaviour
             {
                 _laserBombCD = Time.time + _laserBombRate;
                 Instantiate(_laserBomb, _fireHolder.position, Quaternion.identity);
+                AudioManager.Instance.PlayEffect(_orbShotClip, 1.0f);
             }          
         }
     }
@@ -180,12 +204,12 @@ public class FinalBoss : MonoBehaviour
             {
                 _miniLaserCD = Time.time + _miniLaserFireRate;
                 Instantiate(_miniLaser, _miniLaserSpawn1.position, Quaternion.identity, _miniLaserSpawn1.transform);
+                AudioManager.Instance.PlayEffect(_miniLaserClip, .75f);
             }
         }
     }
     private void P1NormalLaser()
     {
-        //cd of 10 - 15 secs
         //if p2Active false
         if (_p2Active == false && _anim.GetCurrentAnimatorStateInfo(0).IsTag("2"))
         {
@@ -193,9 +217,20 @@ public class FinalBoss : MonoBehaviour
             if (Time.time > _normLaserCD)
             {
                 _normLaserCD = Time.time + _normLaserFireRate;
-                Instantiate(_normalLaser, _normLaserSpawn.position, Quaternion.identity, _normLaserSpawn.transform);            
-            }          
+                Instantiate(_normalLaser, _normLaserSpawn.position, Quaternion.identity, _normLaserSpawn.transform);
+                _normalLaserClipStart = true;
+            }
+            if (_normalLaserClipStart == true)
+            {
+                StartCoroutine(NormalLaserClipPlay());
+                _normalLaserClipStart = false;
+            }
         }
+    }
+    IEnumerator NormalLaserClipPlay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        AudioManager.Instance.PlayEffect(_normalLaserClip, .5f);
     }
     private void P2BombDrop()
     {
@@ -223,6 +258,7 @@ public class FinalBoss : MonoBehaviour
             {
                 _bombCD = Time.time + _bombFireRate;
                 Instantiate(_bombPrefab, _curBombSpawn.position, Quaternion.identity);
+                AudioManager.Instance.PlayEffect(_bombDropClip, 1.0f);
             }            
         }
     }
@@ -272,10 +308,14 @@ public class FinalBoss : MonoBehaviour
     private void Damage(float _damage)
     {
         _curHp -= _damage;
+        AudioManager.Instance.PlayEffect(_hitSound, 1.0f);
+
         if (_curHp <= 0f)
         {
             _anim.enabled = false;
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
             Instantiate(_explosionPrefab, _explosionPos.transform.position, Quaternion.identity);
+            AudioManager.Instance.PlayEffect(_explosionSound, 1.0f);
             Destroy(gameObject, 3.0f);
         }       
     }
