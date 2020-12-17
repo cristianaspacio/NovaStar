@@ -26,6 +26,9 @@ public class Enemy_BaseCruiser : EnemyAbstractClass
     [SerializeField]
     private float _fastSpeed = 60.0f;
 
+    //[SerializeField]
+    //private float _shotSpeed;
+
     private float newPos;
 
 
@@ -84,12 +87,14 @@ public class Enemy_BaseCruiser : EnemyAbstractClass
             if (Time.time > _fireCD)
             {
                 _fireCD = Time.time + _fireRate;
-                Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+                GameObject _firedShot = Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+                _firedShot.GetComponent<EnemyShot>()._speed = _shotSpeed;
             }
         }
         else
         {
-            Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+            GameObject _firedShot = Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+            _firedShot.GetComponent<EnemyShot>()._speed = _shotSpeed;
         }
     }
 

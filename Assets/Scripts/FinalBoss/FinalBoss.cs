@@ -82,6 +82,9 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private AudioClip _miniLaserClip;
 
     [SerializeField] private GameObject _bgColorChange;
+    //[SerializeField] private HitFlash _hitFlash;
+
+    private CameraShake _cameraShake;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,10 +92,16 @@ public class FinalBoss : MonoBehaviour
         _curHp = _maxHp;
         transform.Rotate(new Vector3(0, 270, 0));
         _anim = GetComponent<Animator>();
+        //_hitFlash = GetComponent<HitFlash>();
 
         if (_anim == null)
         {
             Debug.LogError("No Anim");
+        }
+        _cameraShake = GameObject.FindWithTag("MainCamera").GetComponent<CameraShake>();
+        if (_cameraShake == null)
+        {
+            Debug.LogError("Camera Shake is NULL.");
         }
     }
     // Update is called once per frame
@@ -309,11 +318,13 @@ public class FinalBoss : MonoBehaviour
     {
         _curHp -= _damage;
         AudioManager.Instance.PlayEffect(_hitSound, 1.0f);
+        //_hitFlash.DamageFlash();
 
         if (_curHp <= 0f)
         {
             _anim.enabled = false;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            StartCoroutine(_cameraShake.Shake(3.0f, 3.0f));
             Instantiate(_explosionPrefab, _explosionPos.transform.position, Quaternion.identity);
             AudioManager.Instance.PlayEffect(_explosionSound, 1.0f);
             Destroy(gameObject, 3.0f);

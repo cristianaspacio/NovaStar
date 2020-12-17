@@ -48,6 +48,10 @@ public class MidBoss : MonoBehaviour
     [SerializeField] protected float _iFrameTime = 0.2f;
     [SerializeField] protected float _beamDamage = 1.0f;
     protected float _hitTime;
+
+    [SerializeField] AudioClip _hitSound;
+    //[SerializeField] private HitFlash _hitFlash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +62,8 @@ public class MidBoss : MonoBehaviour
         _turret2.SetActive(true);
         _targetRotation = Quaternion.Euler(0, 270, 0);
         transform.rotation = Quaternion.Euler(0, 90, 0);
+
+        //_hitFlash = GetComponent<HitFlash>();
     }
 
     // Update is called once per frame
@@ -124,25 +130,15 @@ public class MidBoss : MonoBehaviour
     private void Damage(float _damage)
     {
         _health -= _damage;
+        AudioManager.Instance.PlayEffect(_hitSound, 1.0f);
+        //_hitFlash.DamageFlash();
+
         if (_health <= 0 && !_isDead)
         {
             _isDead = true;
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+       
             AudioManager.Instance.PlayEffect(_explosionSound, _explosionVol);
-            /*
-            if (_explosionPrefab != null)
-            {
-                Debug.Log("Explosion");
-
-                GameObject explosion = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-
-                explosion.gameObject.GetComponent<ExplosionAnim>()._sfxSource = _explosionSound;
-                explosion.gameObject.GetComponent<ExplosionAnim>()._volume = _explosionVol;
-
-                explosion.transform.localScale = new Vector3(_explosionScale, _explosionScale, _explosionScale);
-
-            }
-            */
 
             AudioManager.Instance.PlayMusic(_endMusicSource, _musicVolume);
 

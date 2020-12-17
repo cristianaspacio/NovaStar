@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2094495780
+--- !u!114 &4574322455775130491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6501844639118040453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b8f9dbd478bd54299d3775fdd2aa40, type: 3}
+  m_Script: {fileID: 11500000, guid: 904a742a7659dab488b342068c50bdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _environment: {fileID: 0}
 --- !u!1 &8126645068013010188
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,11 +108,6 @@ PrefabInstance:
     - target: {fileID: 3649050723600362763, guid: 1a341dbc02952a2459512eae3628cb08,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337399371250956097, guid: 1a341dbc02952a2459512eae3628cb08,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

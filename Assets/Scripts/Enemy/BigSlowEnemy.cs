@@ -23,8 +23,6 @@ public class BigSlowEnemy : EnemyAbstractClass
 
     private float _randomPos;
 
-
-
     // Start is called before the first frame update
     protected override void Start()
     {

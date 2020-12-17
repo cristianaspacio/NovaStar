@@ -59,11 +59,19 @@ public class CanvasManager : MonoBehaviour
     void CheckWinStatus()
     {
         if (_spawnManager.DidWin()  && _playerDead == false)
-        {
+        {       
             _wavePanel.SetActive(false);
             _endPanel.SetActive(true);
+
+            _diedText = GameObject.Find("Died_Text").GetComponent<Text>();
+            _diedText.enabled = false;
+
             _winText = GameObject.Find("Win_Text").GetComponent<Text>();
-            _winText.enabled = true;
+            _winText.enabled = true;         
         }
+    }
+    public void SetPlayerDead()
+    {
+        _playerDead = false;       
     }
 }

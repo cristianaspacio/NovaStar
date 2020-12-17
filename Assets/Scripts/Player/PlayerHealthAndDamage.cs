@@ -4,7 +4,7 @@ public class PlayerHealthAndDamage : MonoBehaviour
 {
     [SerializeField]
     public float health;
-    
+
     [SerializeField]
     public float maximumHealth;
 
@@ -13,6 +13,11 @@ public class PlayerHealthAndDamage : MonoBehaviour
 
     private PlayerWeaponsFire _playerWeapon;
     private SpawnManager _spawnManager;
+
+    private CameraShake _cameraShake;
+
+    [SerializeField]
+    private AudioClip _bgMusic;
 
     private void Start()
     {
@@ -28,30 +33,43 @@ public class PlayerHealthAndDamage : MonoBehaviour
             Debug.LogError("Player Weapon is NULL");
         }
 
-        health = _playerWeapon._weaponsPrefab.Length;
-        maximumHealth = _playerWeapon._weaponsPrefab.Length;
+        _cameraShake = GameObject.FindWithTag("MainCamera").GetComponent<CameraShake>();
+        if (_cameraShake == null)
+        {
+            Debug.LogError("Camera Shake is NULL.");
+        }
+
+        health = 3;
+        maximumHealth = 3;
     }
 
     public void PlayerDamage()
     {
         health -= 1;
 
+        StartCoroutine(_cameraShake.Shake(.3f, 1f));
+
         if (_playerWeapon._weaponPowerLevel > 0)
         {
-            _playerWeapon._weaponPowerLevel--;
+            _playerWeapon._weaponPowerLevel = 0;
             _playerWeapon.UpdateWeaponLevel();
         }
 
         if (health <= 0)
         {
-            this.gameObject.SetActive(false);
-            Instantiate(_explosionAnim, transform.position, Quaternion.identity);           
+            this.gameObject.SetActive(false); //inactive to prevent damage or input
+            Instantiate(_explosionAnim, transform.position, Quaternion.identity);
         }
     }
 
     public bool getPlayerStatus()
     {
         return this.gameObject.activeSelf;
+    }
+    public void PlayerRespawn()
+    {
+        health = 3f; //keep in here, used for checkpoint system to reset player health
+        AudioManager.Instance.PlayMusic(_bgMusic, 1.0f);
     }
 }
 

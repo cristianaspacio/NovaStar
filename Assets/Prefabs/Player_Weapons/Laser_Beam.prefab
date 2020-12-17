@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7786823413261041394}
   - component: {fileID: -5284950523158602158}
   - component: {fileID: 3927458454104951121}
+  - component: {fileID: -3918236547286695977}
   - component: {fileID: -566648028338350547}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Laser_Beam
   m_TagString: Beam
   m_Icon: {fileID: 0}
@@ -69,7 +70,8 @@ AudioSource:
   m_GameObject: {fileID: 7786823413261041405}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4148988785229164511, guid: cb710fa7482fd6f419d25a9a52c9c831,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -156,6 +158,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3918236547286695977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786823413261041405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612ceda352f49a9429c3df30263439cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1.5
+  _hitDelay: 0.1
 --- !u!114 &-566648028338350547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Curve_laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981637849812675696, guid: 0ac579fa0ea611b49b25189238673508,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1981637849812675701, guid: 0ac579fa0ea611b49b25189238673508,
         type: 3}

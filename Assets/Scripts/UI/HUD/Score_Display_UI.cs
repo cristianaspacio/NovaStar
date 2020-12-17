@@ -23,14 +23,13 @@ public class Score_Display_UI : MonoBehaviour
         _scoreText.text = "SCORE: " + 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
-
     public void UpdateScore(float playerScore)
     {
         _scoreText.text = "SCORE: " + playerScore.ToString();
+    }
+
+    public float GetUIScore()
+    {
+        return _playerScore.GetScore();
     }
 }

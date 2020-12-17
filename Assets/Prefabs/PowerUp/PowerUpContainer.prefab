@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7698240665084404659}
   - component: {fileID: -2574170840675687940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PowerUpContainer
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2595db7e355939449bb351259305e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 5
   _clip: {fileID: 0}
 --- !u!1001 &9022947781026558875
 PrefabInstance:
@@ -57,6 +57,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Power_Up_Side_To_Side
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391417300127363874, guid: 0690e0006415d8440914bf555fc36188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544987536331519871, guid: 0690e0006415d8440914bf555fc36188,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5095955048090537068, guid: 0690e0006415d8440914bf555fc36188,
         type: 3}
@@ -118,7 +128,13 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: adc9ba09ae5db3c4caa9e29fddb4d9fa, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 8096695661643502646, guid: 0690e0006415d8440914bf555fc36188,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7135237632354940098, guid: 0690e0006415d8440914bf555fc36188, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0690e0006415d8440914bf555fc36188, type: 3}
 --- !u!4 &4291802001239916535 stripped
 Transform:

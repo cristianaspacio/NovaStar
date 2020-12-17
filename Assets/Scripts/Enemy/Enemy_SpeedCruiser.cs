@@ -28,7 +28,6 @@ public class Enemy_SpeedCruiser : EnemyAbstractClass
 
     private float newPos;
 
-
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -83,12 +82,15 @@ public class Enemy_SpeedCruiser : EnemyAbstractClass
             if (Time.time > _fireCD)
             {
                 _fireCD = Time.time + _fireRate;
-                Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+
+                GameObject _firedShot = Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+                _firedShot.GetComponent<EnemyShot>()._speed = _shotSpeed;
             }
         }
         else
         {
-            Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+            GameObject _firedShot = Instantiate(_enemyWeapon, _weaponPos.position, Quaternion.identity);
+            _firedShot.GetComponent<EnemyShot>()._speed = _shotSpeed;
         }
     }
 

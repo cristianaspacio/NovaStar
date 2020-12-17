@@ -136,7 +136,7 @@ MonoBehaviour:
   - {fileID: 7786823413261041405, guid: 7fad092903612044a8ab4ead3d49e1cb, type: 3}
   _chargeSprite: {fileID: 8133226408975967823, guid: d3ae44c2dd673664c8a40fb81c65dcc2,
     type: 3}
-  _fireRate: 0.25
+  _fireRate: 0.35
   _willFire: -1
   _weaponLevelString:
   - 'LEVEL 1: FIREBALL'
@@ -192,6 +192,7 @@ MonoBehaviour:
   maximumHealth: 1
   _explosionAnim: {fileID: 7919869171319994501, guid: 855111d5bb81b6b4c99b9a8af6120ee8,
     type: 3}
+  _bgMusic: {fileID: 8300000, guid: e1e6577f755d0294ca6e0a166c3eb471, type: 3}
 --- !u!1001 &1453743594913760839
 PrefabInstance:
   m_ObjectHideFlags: 0

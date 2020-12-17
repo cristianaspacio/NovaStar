@@ -4827,7 +4827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee42effe3c6c644aaf731dfc5e9f90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 5050648036042021215, guid: 5ab6f89cce33049e78cc4bab1334d150,
+  _bulletPrefab: {fileID: 2576763795707530797, guid: fffa9bb9dfcc8ea41869daa6df268c77,
     type: 3}
   _startAngle: 0
   _endAngle: -180
@@ -4954,6 +4954,7 @@ GameObject:
   - component: {fileID: 7090471414165206501}
   - component: {fileID: 7090471414165206500}
   - component: {fileID: 7090471414165206503}
+  - component: {fileID: -3310265239252344921}
   m_Layer: 8
   m_Name: MidBoss
   m_TagString: Enemy
@@ -5093,6 +5094,20 @@ MonoBehaviour:
   _beamHit: 0
   _iFrameTime: 0.2
   _beamDamage: 1
+  _hitSound: {fileID: 8300000, guid: 2945770ade5bbcf44a8453b552374fdd, type: 3}
+  _hitFlash: {fileID: 0}
+--- !u!114 &-3310265239252344921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090471415416051735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904a742a7659dab488b342068c50bdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7090471414322171942
 PrefabInstance:
   m_ObjectHideFlags: 0

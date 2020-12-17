@@ -17,10 +17,9 @@ public class Health_Bar_UI : MonoBehaviour
     private Text _healthText;
 
     private float _currentHealth;
-    private float _maxHealth = 6f;
+    private float _maxHealth = 3f;
 
     private PlayerHealthAndDamage _player;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +50,7 @@ public class Health_Bar_UI : MonoBehaviour
         _healthBackground.fillAmount = fillAmount;
         _healthText.text = "Health";
 
-        if (_currentHealth <= 2f)
+        if (_currentHealth <= 1f)
         {
             _healthText.color = Color.red;
             _healthBackground.color = Color.red;
@@ -61,7 +60,6 @@ public class Health_Bar_UI : MonoBehaviour
             _healthText.color = Color.white;
             _healthBackground.color = new Color32(204, 126, 14, 255);
         }
-
     }
 
 

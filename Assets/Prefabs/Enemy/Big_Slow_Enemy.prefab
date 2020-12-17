@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6976760748823757218}
   - component: {fileID: 6976760748823757221}
   - component: {fileID: 6976760748823757247}
+  - component: {fileID: 7298358269095267323}
   m_Layer: 0
   m_Name: Big_Slow_Enemy
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1437637814892773361}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5, y: 10.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.7347562, z: 1.000001}
   m_Children:
   - {fileID: 6976760748338407639}
   m_Father: {fileID: 0}
@@ -161,10 +162,13 @@ MonoBehaviour:
   _beamHit: 0
   _onScreen: 0
   _dying: 0
-  _iFrameTime: 0.2
-  _beamDamage: 1
+  _iFrameTime: 0
+  _beamDamage: 0
   _explosionSound: {fileID: 8300000, guid: 89430df8e1f8d534abec43287ed5ce2a, type: 3}
   _explosionVol: 0.8
+  _shotSpeed: 70
+  _hitSound: {fileID: 8300000, guid: 2945770ade5bbcf44a8453b552374fdd, type: 3}
+  _hitFlash: {fileID: 0}
   _weaponPrefabs:
   - {fileID: 6256109815664049991, guid: bfd89dbbf142a3a468121d9c93de2d00, type: 3}
   - {fileID: 1923279561761408386, guid: 6d3ff74658c8bbb4a9ec9565ee70e3ca, type: 3}
@@ -172,6 +176,18 @@ MonoBehaviour:
   _laserDelay: 0
   _laserFire: 1
   _fireBreak: 0
+--- !u!114 &7298358269095267323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437637814892773361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904a742a7659dab488b342068c50bdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6976760748338407640
 GameObject:
   m_ObjectHideFlags: 0

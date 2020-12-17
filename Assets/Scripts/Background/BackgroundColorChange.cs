@@ -25,9 +25,17 @@ public class BackgroundColorChange : MonoBehaviour
         {
             _anim.SetBool("FinalBoss", true);
         }
+        else
+        {
+            _anim.SetBool("FinalBoss", false);
+        }
     }
     public void FinalBossActive()
     {
         _finalBossActive = true;
+    }
+    public void FinalBossNotActive()
+    {
+        _finalBossActive = false;
     }
 }

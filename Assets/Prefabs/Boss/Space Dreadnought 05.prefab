@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 3649050722857703644}
   - component: {fileID: 3649050722857703643}
   - component: {fileID: 1522612036845427082}
+  - component: {fileID: 2094495780}
   m_Layer: 0
   m_Name: Space Dreadnought 05
   m_TagString: Enemy
@@ -594,6 +595,7 @@ MonoBehaviour:
   _bombDropClip: {fileID: 8300000, guid: 9c3b4068ef66faf4b83bb726dc887299, type: 3}
   _orbShotClip: {fileID: 8300000, guid: 2d52cb8d15870f449ace53df371c97e1, type: 3}
   _miniLaserClip: {fileID: 8300000, guid: e8ede44cd9967f040b6b52852fc20ae0, type: 3}
+  _bgColorChange: {fileID: 0}
 --- !u!65 &1522612036845427082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -607,6 +609,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.04, y: 1.09, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2094495780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649050723600265515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b8f9dbd478bd54299d3775fdd2aa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _environment: {fileID: 0}
 --- !u!1 &3649050723638820978
 GameObject:
   m_ObjectHideFlags: 0
