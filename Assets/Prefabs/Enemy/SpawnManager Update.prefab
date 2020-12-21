@@ -128,7 +128,7 @@ MonoBehaviour:
     _waveAnim: {fileID: 0}
   - name: Wave 12
     enemy:
-    - {fileID: 2713658611427233250, guid: 64255af2415cc3748b24f10fab93c976, type: 3}
+    - {fileID: 4699281806345667649, guid: a3f933eb7dbb185429c50217f806894d, type: 3}
     - {fileID: 1800837295739870105, guid: a2f2660a1946ad647b701ed9ab9581a2, type: 3}
     - {fileID: 1800837295739870105, guid: 97043559fa2de64479712cdf42244cbd, type: 3}
     count: 10

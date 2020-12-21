@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animTime: 1
-  _sfxSource: {fileID: 0}
+  _sfxSource: {fileID: 8300000, guid: 2945770ade5bbcf44a8453b552374fdd, type: 3}
   _volume: 1

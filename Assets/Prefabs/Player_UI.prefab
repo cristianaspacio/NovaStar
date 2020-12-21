@@ -146,7 +146,7 @@ MonoBehaviour:
   - 'LEVEL 5: BIG FIREBALL'
   - 'LEVEL 6: LASER'
   _weaponPowerLevel: 0
-  _weaponCurrentlyOn: 0
+  _weaponCurrentlyOn: 5
 --- !u!114 &867456948504797347
 MonoBehaviour:
   m_ObjectHideFlags: 0
